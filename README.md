@@ -17,7 +17,7 @@ mvn -DskipTests -Pnative clean package
 
 ### Run
 
-__Remember to run on the system you targeted__
+_Remember to run on the system you targeted_
 
 ````shell
 ./target/spring-native-demo
