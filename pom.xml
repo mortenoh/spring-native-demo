@@ -14,7 +14,10 @@
   <name>spring-native-demo</name>
   <description>spring-native-demo</description>
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>11</java.version>
+    <speedy-spotless-maven-plugin.version>0.1.3</speedy-spotless-maven-plugin.version>
     <repackage.classifier />
     <spring-native.version>0.12.1</spring-native.version>
   </properties>
@@ -92,6 +95,30 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.committed</groupId>
+        <artifactId>speedy-spotless-maven-plugin</artifactId>
+        <version>${speedy-spotless-maven-plugin.version}</version>
+        <configuration>
+          <java>
+            <eclipse>
+              <file>formatter.xml</file>
+              <version>4.9.0</version>
+            </eclipse>
+            <trimTrailingWhitespace />
+            <removeUnusedImports />
+            <importOrder>
+              <order>
+                java,javax,org,com
+              </order>
+            </importOrder>
+            <licenseHeader>
+              <file>license-header</file>
+            </licenseHeader>
+          </java>
+          <lineEndings>UNIX</lineEndings>
+        </configuration>
       </plugin>
     </plugins>
   </build>
